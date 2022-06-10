@@ -1,4 +1,5 @@
 # 実験した際に作成したファイル置き場
-|ファイル名|説明|
+|ファイル名(cpp, exe)|説明|
 |----|:---|
-|DebuggerDetection(.cpp, .exe)|デバッガでの実行を検知する(win32)<br>[ここ](https://www.mbsd.jp/research/20200910.html)を参考にした|
+|DebuggerDetection|デバッガでの実行を検知する(win32)<br>[ここ](https://www.mbsd.jp/research/20200910.html)を参考にした|
+|DebuggerDetection2|強化版．IsDebuggerPresent()に頼らず実装した．参考は↑と同じ|
