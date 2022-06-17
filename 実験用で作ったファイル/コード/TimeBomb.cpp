@@ -10,7 +10,7 @@ using namespace std;
 //メイン関数
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int nCmdShow) {
 	time_t rawtime;		//時間値を表す型
-	struct tm *timeinfo;	//tm構造体のtimeinfoを用意
+	struct tm* timeinfo;	//tm構造体のtimeinfoを用意
 	char buffer[100];
 
 	//現在の時刻をrawtimeに代入
@@ -20,8 +20,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 
 	//秒数が10の倍数の時のみ動作する
 	//ここを編集すれば任意のタイミングで動作するようにできる
-	if (timeinfo->tm_sec%10==0) {
-		MessageBox(NULL, TEXT("マルウェアが目覚めました！"), TEXT("怪しい実行ファイル"), MB_OK | MB_ICONINFORMATION);		
+	//構造体tmの仕様に注意．ex)1月は0で表される
+	if (timeinfo->tm_mon == 11 && timeinfo->tm_mday == 17) {
+		MessageBox(NULL, TEXT("マルウェアが目覚めました！"), TEXT("怪しい実行ファイル"), MB_OK | MB_ICONINFORMATION);
 	}
 	else {
 		MessageBox(NULL, TEXT("マルウェアは息をひそめています..."), TEXT("怪しい実行ファイル"), MB_OK | MB_ICONINFORMATION);
