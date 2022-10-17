@@ -11,13 +11,10 @@ void failed(){
 
 int main(int argc, char const *argv[])
 {
-    char username[256];
     char password[256];
-    printf("Enter username: ");
-    scanf("%s", username);
     printf("Enter password: ");
     scanf("%s", password);
-    if(strcmp(username, "Hondhii")==0&&strcmp(password, "sukiyaki")==0){
+    if(strcmp(password, "Suk1yaki_i5_delici0us")==0){
         succeeded();
     }else{
         failed();
