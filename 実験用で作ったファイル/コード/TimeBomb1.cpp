@@ -17,7 +17,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 	time_t rawtime;		//時間値を表す型
 	struct tm* timeinfo;	//tm構造体のtimeinfoを用意
-	char buffer[100];
 
 	//現在の時刻をrawtimeに代入
 	time(&rawtime);
