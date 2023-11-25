@@ -4,8 +4,20 @@
 
 #pragma comment(lib, "Shlwapi.lib")
 
-int secret(void) {
-	return PathFileExistsA("C:\\Windows\\System32\\VBoxControl.exe");
+//Vbox特有のファイルがどれか1つでもあればTrueを返す
+bool secret(void) {
+    if (PathFileExistsA("C:\\Windows\\System32\\VBoxControl.exe")
+        ||PathFileExistsA("C:\\Windows\\System32\\VBoxTray.exe")
+        ||PathFileExistsA("C:\\Windows\\System32\\VBoxService.exe")
+        ||PathFileExistsA("C:\\Windows\\System32\\VBoxMouse.sys")
+        ||PathFileExistsA("C:\\Windows\\System32\\VBoxGuest.sys")) {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+	
 }
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -16,9 +28,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
-
+    //secretがFalseで活性化．
 	if (!secret()) {
-        MessageBox(NULL, TEXT("マルウェアだ！"), TEXT("Time of Attack!"), MB_OK | MB_ICONERROR);
+        MessageBox(NULL, TEXT("マルウェアが活性化しました"), TEXT("Time of Attack!"), MB_OK | MB_ICONERROR);
 	}
     return 0;
 }
